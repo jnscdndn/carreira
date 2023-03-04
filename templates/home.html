@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+    <title>Home Page</title>
+    
+</head>
+<body>
+        <nav>
+            <div class="logo"><img src="{{url_for('static',filename='images/logo.png')}}" alt=""></div>
+            <ul class="navItems">
+                <li><a href="/">HOME</a></li>
+                <li><a href="/about">ABOUT</a></li>
+                <li><button onclick="window.location.href='/login';">LOGIN</button></li>
+
+            </ul>
+        </nav>
+    <div class="container">
+        
+        <div class="wrapper">
+            <div class="cols cols0">
+                <span class="topline">Hello </span>
+                <h1><span class="multiText" id="multiText"></span></h1>
+   
+                    <p>Take our career guidance tour to get a list of career recommendations that match your skills, interests, and values.</p>
+                  
+                <div class="btn">
+                    <button>Get Started</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typingEffect= new Typed(".multiText",{
+            strings:["welcome to Carreira!","Carreira इत्यत्र स्वागतम्!","कयारेइरा में आपका स्वागत है।",
+            "କ୍ୟାରେଇରାରେ ଆପଣଙ୍କୁ ସ୍ଵାଗତ ଜଣାଉଅଛୁ।"],
+            loop : true,
+            typeSpeed:100,
+            backSpeed:80,
+            backDelay:1500
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background: url(../images/home_page.png);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+}
+
+nav {
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 80px;
+    line-height: 80px 100px;
+    padding: 10px 15px 0 15px;
+}
+
+img {
+    height: 60px;
+    width: 210px;
+}
+
+.logo {
+    float: left;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+}
+.navItems{
+    margin-top: 20px;
+    display: flex;
+    float: right;
+}
+.navItems li{
+
+    list-style: none;
+    margin: 0 15px;
+}
+
+.navItems li a{
+   
+    font-size: 20px;
+    color:WHITE;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.3s;
+}
+
+.navItems li  button{
+    outline: none;
+    border: 2px solid white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    font-weight: 500px;
+    background:transparent;
+    padding: 1px 6px ;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    border-radius:2px;
+}
+
+
+.navItems li:hover button{
+    background-color:white ;
+    color: #3d535f;
+}
+.navItems li:hover a{
+    text-decoration: underline;
+}
+.wrapper {
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    width: 600px;
+    height: 100%;
+    background: transparent;
+ 
+    justify-content: center;
+    align-items: center;
+}
+p{
+    color: white;
+   font-size: 1em;
+font-weight: 600;
+margin-bottom: 30px;
+}
