@@ -1,0 +1,8 @@
+CREATE TABLE `carreira`.`register` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(256) NULL,
+  `email` VARCHAR(256) NULL,
+  `phone` VARCHAR(45) NULL,
+  `password` VARCHAR(256) NULL,
+  PRIMARY KEY (`id`));
+}
