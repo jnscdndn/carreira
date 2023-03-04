@@ -8,7 +8,6 @@
 body{
     overflow: hidden; 
     background: linear-gradient(45deg,#7f00ff, #e26b9c);
-
 }
 .container{
     width: 100%;
@@ -27,7 +26,7 @@ nav{
 }
 img{
     z-index: 50;
-    height: 60px;
+    height: 65px;
     width: 210px;
 }
 .logo{
@@ -50,7 +49,7 @@ img{
 .navItems li a{
    
     font-size: 20px;
-    color:WHITE;
+    color: white;
     letter-spacing: 3px;
     text-decoration: none;
     text-transform: capitalize;
@@ -59,11 +58,11 @@ img{
 
 .navItems li  button{
     outline: none;
-    border: 2px solid white;
+    border: 2px solid  white;
     cursor: pointer;
     font-size: 18px;
     font-weight: 400;
-    color: white;
+    color:  white;
     font-weight: 500px;
     background:transparent;
     padding: 1px 6px ;
@@ -74,8 +73,9 @@ img{
 
 
 .navItems li:hover button{
-    background-color:white ;
+    background-color: white ;
     color: #3d535f;
+    border: none;
 }
 .navItems li:hover a{
     text-decoration: underline;
@@ -97,7 +97,9 @@ overflow: hidden;
     border-radius: 50%;
     left: -15%;
     top:40%;
-    background: linear-gradient(75deg,rgb(223, 12, 12), rgb(243, 184, 75));
+   
+    background: linear-gradient(75deg,red,orange);
+
     animation: object1 6s linear infinite;
 }
 .wrapper::after{
@@ -108,7 +110,11 @@ overflow: hidden;
     border-radius: 50%;
     left: 35%;
     top:12%;
-    background: linear-gradient(75deg,rgb(223, 12, 12), rgb(243, 184, 75));
+
+    background: linear-gradient(75deg,red,orange);
+  
+    
+
     animation: object2 6s linear infinite;
 }
 @keyframes object1{
@@ -136,7 +142,7 @@ overflow: hidden;
     height: 4px;
     width: 45px;
     bottom: 10px;
-    background-color: orange;
+    background-color: yellow;
 }
 .cols{
     width: 60%;
@@ -163,7 +169,7 @@ p{
     margin: 5px;
     font-size: 1em;
     
-    color:white;
+    color: white;
 
 }
 .btn{
@@ -187,6 +193,8 @@ p{
     border-radius:2px;
 }
 button:hover{
-    background-color: orange;
-    color: white;
+    background-color: yellow;
+    /* color:  #3d535f; */
+    color: #7f00ff;
+    border: none;
 }
