@@ -1,14 +1,27 @@
-from flask_mail import *
-from flask import Flask
-app=Flask(__name__)
-mail=Mail(app)
-with open('config.json','r') as m:
-    params=json.load(f)[]
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT']=465
-app.config['MAIL_USERNAME']=
-app.config['MAIL_PASSWORD']=
-app.config['MAIL_USE_TLS ']=False
-app.config['MAIL_USE_SSL ']=True
+import smtplib
 
+gmail_user = 'carreiraofficial@gmail.com'
+gmail_password = 'fafcmqnqlxrzedxw'
 
+sent_from = gmail_user
+to = ['', 'srsoumyaranjan2019@gmail.com']
+subject = 'Lorem ipsum dolor sit amet'
+body = 'consectetur adipiscing elit'
+
+email_text = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (sent_from, ", ".join(to), subject, body)
+
+try:
+    smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    smtp_server.ehlo()
+    smtp_server.login(gmail_user, gmail_password)
+    smtp_server.sendmail(sent_from, to, email_text)
+    smtp_server.close()
+    print ("Email sent successfully!")
+except Exception as ex:
+    print ("Something went wrong….",ex)

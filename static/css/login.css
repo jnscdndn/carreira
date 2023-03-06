@@ -56,6 +56,15 @@ img {
     backdrop-filter: blur(20px);
 
 }
+.message-box{
+    position: relative;
+    width: 100%;
+}
+.error{
+    height: 20px;
+
+    color: yellow;
+}
 .wrapper .logo-close{
 position: absolute;
 top: 0;
