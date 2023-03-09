@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash, url_for, session, redirect
 from flask_mysqldb import MySQL
+from flask_session import Session
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import smtplib
@@ -14,6 +15,10 @@ app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = "sree123sree"
 app.config["MYSQL_DB"] = "carreira"
 mysql = MySQL(app)
+
+# Configure Session
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
 
 
 @app.route("/")
@@ -207,13 +212,13 @@ def login_validate():
             flash("Incorrect Password", "Error")
             return render_template("login.html", email=email)
     else:
-        flash("This email not registered", "Error")
+        flash("This email is not registered", "Error")
         return render_template("login.html")
 
 
 @app.route("/get_started")
 def get_started():
-    if session == {}:
+    if not session.get("email"):
         return render_template("login.html")
     else:
         return render_template("activity.html")
