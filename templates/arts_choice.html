@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/arts_choice.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<style>
+   .container .card.selected .box{
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+    background: linear-gradient(45deg,#b95ce4,#4f29cd); 
+
+  }
+</style>
+    <title>Arts Choice</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
+        <ul class="navItems">
+            <li><a href="/">Home</a></li>
+        <li><a href="/activity" class="active">Activity</a></li>
+            <li><a href="/cources">Courses</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        {% if mail == '': %}
+        <div class="main">
+          <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+          <a href="/register">Register</a>
+          <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+        {% else %}
+        <div class="main">
+          <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+            <div class="bx bx-menu" id="menu-icon"></div>        
+        </div>
+        {% endif %}
+    </nav>
+    <script>
+        let menu=document.querySelector('#menu-icon');
+        let navbar=document.querySelector('.navItems');
+        menu.onclick = () => {
+            menu.classList.toggle('bx-x');
+            navbar.classList.toggle('open');
+        }
+    </script>
+    <p>Please select your Domain</p>
+
+    
+    <div class="container">
+        <div class="card" value="Education">
+            <div class="box" style="background-color: #7b68ee;">
+                <div class="content">
+                    <h3>Education</h3>               
+                </div>
+            </div>
+        </div>
+        <div class="card" value="Art and Culture">
+            <div class="box" style="background-color: #ff4500;">
+                <div class="content">
+                    <h3>Art & Culture</h3>               
+                </div>
+            </div>
+        </div>
+        <div class="card" value="Journalism">
+            <div class="box" style="background-color: #008000;">
+                <div class="content">
+                    <h3>Journalism</h3>               
+                  
+                </div>
+            </div>
+        </div>
+        <div class="card" value="Law">
+            <div class="box" style="background-color: #170080;">
+                <div class="content">
+                    <h3>Law</h3>               
+                  
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+<button id="submit-button" ><ion-icon name="arrow-forward-outline"></ion-icon></button>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Add a click event listener to each image to toggle its selected state
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('selected');
+      });
+    });
+
+    // Add a click event listener to the submit button to send the selected images to the server
+    const submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', () => {
+      const selectedCards = [];
+      cards.forEach(card => {
+        if (card.classList.contains('selected')) {
+            const boxValue = card.getAttribute('value');
+            selectedCards.push(boxValue);
+        }
+   
+      });
+      if (selectedCards.length === 0) {
+      // Show an error message or alert if no cards are selected
+      alert('Please select at least one domain.');
+      return;
+    }
+
+$.ajax({
+      url: '/submit_images',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(selectedCards),
+      success: function(response) {
+        // Redirect to the interests page
+        window.location.href = "/interest";
+      }
+  })
+    });
+  </script> 
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

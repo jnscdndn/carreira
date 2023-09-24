@@ -5,19 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Home Page</title>
-    
+   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    })
+    </script>
 </head>
 <body>
         <nav>
-            <div class="logo"><img src="{{url_for('static',filename='images/logo.png')}}" alt=""></div>
+            <div class="logo"><img src="{{url_for('static',filename='images/name1.png')}}" alt=""></div>
             <ul class="navItems">
-                <li><a href="/">HOME</a></li>
-                <li><a href="/about">ABOUT</a></li>
-                <li><button onclick="window.location.href='/login';">LOGIN</button></li>
+                <li ><a href="/" class="active">Home</a></li>
+        <li><a href="/activity">Activity</a></li>
 
+                <li><a href="/cources">Courses</a></li>
+                <li><a href="/about">About</a></li>
             </ul>
+            {% if mail == '': %}
+            <div class="main">
+              <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+              <a href="/register">Register</a>
+              <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+            {% else %}
+            <div class="main">
+              <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+                <div class="bx bx-menu" id="menu-icon"></div>        
+            </div>
+            {% endif %}
+            
+
         </nav>
+        <script>
+            let menu=document.querySelector('#menu-icon');
+            let navbar=document.querySelector('.navItems');
+            menu.onclick = () => {
+                menu.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+            }
+          
+
+        </script>
     <div class="container">
         
         <div class="wrapper">

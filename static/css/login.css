@@ -8,165 +8,32 @@
 }
 
 body {
-    /* background: url(../images/home_page.png); */
-    background: #800000;
+    background:  #46c2cb;
     overflow: hidden;
 }
 
 .container {
     width: 100%;
     min-height: 100vh;
-    justify-content: center;
     display: flex;
-}
-
-nav {
-    margin-top: 5px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    height: 80px;
-    line-height: 80px 100px;
-    padding: 10px 15px 0 15px;
-}
-
-img {
-    height: 65px;
-    width: 210px;
-}
-
-.logo {
-    float: left;
-    padding: 5px;
-    display: flex;
-    cursor: pointer;
-}
-
-.wrapper {
-    margin-top: 30px;
-    position: relative;
-    display: flex;
-    width: 400px;
-    height: 440px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-
-}
-.message-box{
-    position: relative;
-    width: 100%;
-}
-.error{
-    height: 20px;
-
-    color: yellow;
-}
-.wrapper .logo-close{
-position: absolute;
-top: 0;
-right: 0;
-height: 45px;
-width: 45px;
-color: white;
-font-size: 2em;
-justify-content: center;
-display: flex;
-align-items: center;
-cursor: pointer;
-}
-.form-box {
-    width: 100%;
-    padding: 40px;
-}
-.form-box h2{
-    font-size: 2em;
-    color: white;
-    text-align: center;
-}
-.input-box{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid white;
-    margin: 30px 0;
-}
-.input-box label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-    pointer-events: none;
-    top: -5px;
-}
-
-.input-box input {
-    font-size: 1em;
-    font-weight: 600;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    padding: 0 35px 0 5px;
-}
-.input-box .icon{
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: white;
-    line-height: 57px;
-}
-.forgot{
-    font-size: .9m;
-    color: white;
-    font-weight: 500px;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content:right;
-}
-.forgot a{
-    color: white;
-    text-decoration: none;
-}
-.forgot a:hover{
-    text-decoration: underline;
-}
-.btn{
-    width: 100%;
-    height: 45px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-    color: #3d535f;
-    background-color:white;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    border-radius:2px;
+    justify-content: center;
 }
 .btn:hover{
-    color: white;
-    background-color: #3d535f;
+    color: #3d535f;
+    background-color: #ebf5fc;
+    border: 1px solid #3d535f;
 }
 .log-register{
     font-size: .9em;
-    color: white;
+    color: #3d535f;
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
 }
 .log-register p a{
-    color: white;
+    color: #3d535f;
     text-decoration: none;
     font-weight: 600;
 
@@ -174,3 +41,179 @@ cursor: pointer;
 .log-register p a:hover{
     text-decoration: underline;
 }
+.wrapper {
+ 
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: 480px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    border-radius: 20px;
+    background-color:#ebf5fc ;
+
+}
+
+.message-box {
+    font-size: .9em;
+    
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.error {
+    position: absolute;
+    bottom:167px;
+    left:120px;
+    color: red;
+    
+}
+
+.wrapper .logo-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    color: #3d535f;
+    font-size: 2em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #3d535f;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #3d535f;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #3d535f;
+    font-weight: 600;
+    pointer-events: none;
+    top: -5px;
+}
+
+.input-box input {
+    font-size: 1em;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #3d535f;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #3d535f;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.forgot {
+    text-align: right;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+.forgot a {
+    color: #3d535f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color:#3d535f;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    border-radius:2px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+    flex-direction: column;
+    }
+    .wrapper {
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    }
+    .form-box {
+    padding: 20px;
+    }
+    .input-box input {
+    padding: 0 25px 0 5px;
+    }
+    .input-box .icon {
+    right: 18px;
+    }
+    img {
+    height: 50px;
+    width: 160px;
+    }
+    }
+    
+    @media screen and (max-width: 480px) {
+    .form-box h2 {
+    font-size: 1.5em;
+    }
+    .input-box input {
+    padding: 0 20px 0 5px;
+    }
+    .input-box .icon {
+    right: 15px;
+    font-size: 1em;
+    }
+    .message-box {
+    font-size: 0.8em;
+    }
+    img {
+    height: 40px;
+    width: 130px;
+    }
+    
+.error {
+    position: absolute;
+    bottom:134px;
+    left:120px;
+    color: red;
+    
+}
+    }

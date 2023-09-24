@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/final.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <title>Recommendations</title>
+</head>
+<body>
+  <nav>
+    <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
+    <ul class="navItems">
+        <li><a href="/">Home</a></li>
+        <li><a href="/activity" class="active">Activity</a></li>
+
+        <li><a href="/cources">Courses</a></li>
+        <li><a href="/about" >About</a></li>
+    </ul>
+    {% if mail == '': %}
+    <div class="main">
+      <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+      <a href="/register">Register</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    {% else %}
+    <div class="main">
+      <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+            {% endif %}
+</nav>
+<script>
+    let menu=document.querySelector('#menu-icon');
+    let navbar=document.querySelector('.navItems');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+</script>
+<div class="container">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+  <div class="content">
+  <img src="{{url_for('static',filename='images/final_1.png')}}" alt=""  style="display:block; margin:auto; width:400px;height:auto;">
+
+<h4>Career Recommendations</h4>
+<p>Thank you for choosing Carreira. Based on my knowledge, experience, and research, I recommend the following career paths:</p>
+<ul>
+  {% for i in result %}
+
+  <li>{{i[0]}}</li>
+  {% endfor %}
+</ul>
+<p>Each of these careers offers exciting opportunities for growth and development. To learn more about these paths, Please read below:</p>
+</div>
+    {% for i in result %}
+    <div  class="text">
+    
+      
+    <h4>{{i[0]}}</h4>
+      <pre id="paragraph">{{i[1]}}</pre>
+      
+    
+    </div>
+    
+    {% endfor %}
+    </div>
+  <div class="content">
+  <img src="{{url_for('static',filename='images/final_2.png')}}" alt=""  style="display:block; margin:auto; width:400px;height:auto;">
+
+    <p>Remember, exploring your options and taking proactive steps towards your career goals is the key to success. Good luck!</p>
+	<p>If you have any questions or concerns, please don't hesitate to contact us at <a href="mailto:carreiraofficial@gmail.com">carreiraofficial@gmail.com</a>.</p>
+  </div>
+  <button onclick="window.location.href=('/activity')">Back To Activity Page</button>
+
+</body>
+</html>

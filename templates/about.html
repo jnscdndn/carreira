@@ -5,32 +5,87 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{url_for('static',filename='css/about.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-  <title>Document</title>
+  <title>About Page</title>
 </head>
 <body>
   <nav>
-    <div class="logo"><img src="{{url_for('static',filename='images/logo.png')}}" alt=""></div>
+    <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
     <ul class="navItems">
-        <li><a href="/">HOME</a></li>
-        <li><a href="/about">ABOUT</a></li>
-        <li><button onclick="window.location.href='/login';">LOGIN</button></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/activity">Activity</a></li>
 
+        <li><a href="/cources">Courses</a></li>
+        <li><a href="/about" class="active">About</a></li>
     </ul>
+    {% if mail == '': %}
+    <div class="main">
+      <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+      <a href="/register">Register</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    {% else %}
+    <div class="main">
+      <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+            {% endif %}
 </nav>
+<script>
+    let menu=document.querySelector('#menu-icon');
+    let navbar=document.querySelector('.navItems');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+</script>
 <div class="container">
 
 <div class="wrapper">
     <div class="cols cols0">
-      <p>Welcome to our career guidance application! Our mission is to help individuals find their passion and achieve their career goals.
-        We understand that the journey towards a fulfilling career can be challenging, which is why we are committed to providing personalized guidance and support every step of the way.<br><br>
-   
-   Our application is designed to provide users with a range of resources and tools to help them explore their interests, skills, and values, and identify potential career paths that align with their strengths and aspirations. Whether you are a high school student deciding on your future path, a college graduate looking for your first job, or a professional seeking a career change, we are here to help.<br><br>
-   
-   Our team of experienced career advisors and coaches are dedicated to providing expert guidance and support to our users. We offer one-on-one coaching sessions, resume reviews, interview preparation, and other services to help individuals develop the skills and confidence they need to succeed in their chosen field.<br><br>
-   
-   Our application also features a variety of interactive tools, including career assessments, job search engines, and educational resources to help users make informed decisions about their future. We believe that with the right guidance and support, anyone can achieve their career goals and reach their full potential.<br><br>
-Thank you for choosing our career guidance application, and we look forward to helping you achieve success in your career!
+      <p><span>Objective:-</span><br><br>
+
+        The objective of Carreira on career counselling is to develop a comprehensive online platform that provides effective career guidance and counselling services to students and professionals seeking career advancement. 
+          
+        The platform has been designed to assist individuals in identifying their strengths, interests and help them explore a wide range of career options that align with their goals and aspirations.This will also focus on providing information about various industries, job roles, and skill sets required to succeed in the chosen career path.
+        
+         The platform will be equipped with interactive tools, such as personality and skills, their strengths, and career planning resources, to help users make informed decisions about their future. The project aims to support students and professionals in achieving their career goals and empower them to make informed choices that align with their values, interests, and abilities.
+         <br><br>
+       <span> Description:-</span><br><br>
+        The Carreira career counselling project intends to offer insight and help to people who want to effectively explore their career routes. The goal of the initiative is to assist individuals in identifying their skills, passions, and values and matching them with the numrous career option and selecting best fit for them which perfectly suit their requirements.
+        
+        The primary objective of Carreira is to help individuals make informed decisions about their career paths. This involves providing them with the necessary tools and resources to explore various career options and develop a career plan that aligns with their goals and aspirations. The project also seeks to provide ongoing support to individuals as they navigate their career paths, offering guidance and advice whenever needed.
+        The goal of Carreira is to promote career satisfaction and success by helping individuals make informed decisions about their career paths. By providing individuals with the tools and resources they need to explore different a wide range of career options that they might be unamare of. the project seeks to empower individuals to take control of their careers and make choices that are right for them.
+
+<br><br>
+       <span> The functions of Carreira include:</span> <br><br>
+        •	Conduct a comprehensive assessment of the user's skills, interests, values, and personality traits.<br>
+        •	Provide information on various career options and the education and training required for each.<br>
+        •	Help users explore and evaluate different career paths based on their preferences and abilities.<br>
+        •	Assist users in setting career goals and creating action plans to achieve them.<br>
+        •	Continuously evaluate the effectiveness of the project and make necessary improvements.<br><br>
+        The features of Carreira include an online platform that offers access to a range of resources, including career assessments and networking opportunities. The project also offers one-on-one coaching sessions with experienced career counsellors who can provide personalised guidance and support to individuals.<br>
+        
+        In summary, Carreira is a career counselling project that aims to provide individuals with the necessary tools and resources to make informed decisions about their career paths. By offering career assessments, job search strategies, career coaching, and networking opportunities, the project seeks to promote career satisfaction and success.<br>
+        <br><span>Features:-</span><br><br>
+        • Carreira is a career counseling project that aims to inform its users about different career options. The following are some of the features of Carreira:<br>
+        <br>
+        • Comprehensive career database: Carreira has a vast database of various career options available in different industries.<br><br>
+        • User-friendly interface: The platform is user-friendly, making it easy for users to search for and find the information they need.<br><br>
+
+        • Career assessments: Carreira provides users with career assessments that help them identify their skills, strengths, and interests.<br><br>
+        
+        • Career recommendations: Based on the results of the assessments, Carreira recommends suitable career options to its users.<br><br>
+        
+        • Industry insights: Carreira provides users with insights into different industries, including their job market, potential earnings, and growth prospects.<br><br>
+        
+        • Educational requirements: Carreira informs its users of the educational requirements for different careers and the various institutions that offer relevant courses.<br><br>
+        
+        • Career guidance: Carreira provides users with guidance on how to pursue their chosen careers, including job search strategies and interview preparation.<br><br>
+        
+        • Personalized recommendations: Carreira's algorithms are designed to provide personalized recommendations based on user preferences and search history.   <br><br>
 </p>
       
 

@@ -1,1 +1,83 @@
-welcome
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/activity.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <title>Activity</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
+        <ul class="navItems">
+            <li><a href="/">Home</a></li>
+        <li><a href="/activity" class="active">Activity</a></li>
+            <li><a href="/cources">Courses</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        {% if mail == '': %}
+        <div class="main">
+          <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+          <a href="/register">Register</a>
+          <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+        {% else %}
+        <div class="main">
+          <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+            <div class="bx bx-menu" id="menu-icon"></div>        
+        </div>
+        {% endif %}
+    </nav>
+    <script>
+        let menu=document.querySelector('#menu-icon');
+        let navbar=document.querySelector('.navItems');
+        menu.onclick = () => {
+            menu.classList.toggle('bx-x');
+            navbar.classList.toggle('open');
+        }
+    </script>
+<div class="main_container">
+    <div class="container">
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <img src="{{url_for('static',filename='images/inspiration.png')}}" alt="">
+                    <h3>Arts</h3>
+                    <p>If you are interested in the arts, there are many ways to immerse yourself in this vibrant and creative field</p>
+                    <a href="/arts_choice"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                    <img  src="{{url_for('static',filename='images/strategy.png')}}" alt="">
+
+                    <h3>Commerce</h3>
+                    <p>If you are interested in the commerce field, there are numerous ways to dive into this dynamic and ever-evolving industry</p>
+                    <a href="/commerce_choice"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <div class="content">
+                   <img src="{{url_for('static',filename='images/biology.png')}}" alt="">
+
+                    <h3>Science</h3>
+                    <p>If you are interested in the field of science, there are numerous ways to engage yourself in this exciting and ever-evolving field</p>
+                    <a href="/science_choice"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/interest.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+ 
+  <title>Interest Page</title>
+</head>
+<body>
+  <nav>
+    <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
+    <ul class="navItems">
+        <li><a href="/">Home</a></li>
+        <li><a href="/activity" class="active">Activity</a></li>
+
+        <li><a href="/cources">Courses</a></li>
+        <li><a href="/about" >About</a></li>
+    </ul>
+    {% if mail == '': %}
+    <div class="main">
+      <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+      <a href="/register">Register</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    {% else %}
+    <div class="main">
+      <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+            {% endif %}
+</nav>
+<script>
+    let menu=document.querySelector('#menu-icon');
+    let navbar=document.querySelector('.navItems');
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    }
+</script>
+<form action="/final" method="post"  id="interests-form">
+    <div>
+        <label >Choose your interests</label>
+          <select name="Course" id="course" multiple>
+            {% for i in result %}
+            {% if i=="": %}
+            {% else %}
+            <option value="{{i}}">{{i}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <button id="submit-button" class="button"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+   
+</form>
+<script>
+  const interestsForm = document.getElementById('interests-form');
+  const courseSelect = document.getElementById('course');
+
+  interestsForm.addEventListener('submit', function(event) {
+      if (courseSelect.value.length === 0) {
+          event.preventDefault();
+          alert('Please select at least one interest.');
+      }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+<script>
+  new MultiSelectTag('course')
+</script>
+</body>
+</html>

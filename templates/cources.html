@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    
+  </style>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/cources.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    
+    
+    $('#search-input').val('');
+    $('#search-input').on('input', function() {
+      var query = $(this).val();
+      if (query === '') {
+      $('#search-results').empty();
+      document.getElementById('para').style.display='block';
+
+    } else{
+      $('#para').hide();
+
+      $.ajax({
+        url: '/search',
+        data: { 'query': query },
+        dataType: 'json',
+        success: function(response) {
+          var results = '';
+          $.each(response, function(index, value) {
+            results += '<p class="search-result">' + value + '</p>';
+          });
+          $('#search-results').html(results);
+        }
+      });
+    }
+    });
+  
+    $(document).on('click', '.search-result', function() {
+      var result = $(this).text();
+      $('#search-input').val(result);
+      $('#search-results').empty();
+     document.getElementById('search_button').click();
+    });
+  });
+
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="logo"><img src="{{url_for('static',filename='images/name2.png')}}" alt=""></div>
+    <ul class="navItems">
+        <li><a href="/">Home</a></li>
+        <li><a href="/activity">Activity</a></li>
+
+        <li><a href="/cources" class="active">Courses</a></li>
+        <li><a href="/about" >About</a></li>
+    </ul>
+    {% if mail == '': %}
+    <div class="main">
+      <a href='/login' class="user"><i class="ri-user-fill"></i>Login</a>
+      <a href="/register">Register</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    {% else %}
+    <div class="main">
+      <a href='/logout' class="user"><i class="ri-user-fill"></i>Logout</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        
+    </div>
+    {% endif %}
+</nav>
+<script>
+  let menu=document.querySelector('#menu-icon');
+  let navbar=document.querySelector('.navItems');
+  menu.onclick = () => {
+      menu.classList.toggle('bx-x');
+      navbar.classList.toggle('open');
+  }
+
+</script>
+<form action="/search_query" method="post">
+  <div class="search-container">
+    <div class="search-box">
+      
+      <input type="text" id="search-input" name="search_query" placeholder="Enter Course Name">
+      <button type="submit" id="search_button">Search</button>
+    </div>
+  </div>
+</form>
+<div id="para">
+
+{% for i in details %}
+<div  class="text">
+
+  
+<h4>{{i[1]}}</h4>
+  <pre id="paragraph">{{i[0]}}</pre>
+  
+
+</div>
+
+{% endfor %}
+</div>
+  <div class="search-results-container">
+    <div id="search-results"></div>
+  </div>
+</body>
+</html>

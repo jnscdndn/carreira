@@ -1,8 +1,15 @@
-CREATE TABLE `carreira`.`register` (
+CREATE DATABASE carreira;
+CREATE TABLE `carreira`.`register` 
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NULL,
   `email` VARCHAR(256) NULL,
   `phone` VARCHAR(45) NULL,
   `password` VARCHAR(256) NULL,
   PRIMARY KEY (`id`));
-}
+
+CREATE TABLE `carreira`.`course` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+`Course_name`  VARCHAR(256) NULL,
+`Views` INT NULL,
+`Likes` INT NULL,
+PRIMARY KEY (`id`));
